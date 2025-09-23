@@ -23,10 +23,19 @@ jobs:
         working-directory: backend
         run: ./mvnw -B -q -DskipITs=true test
       - name: Run BDD tests
+          # Wait for backend to be available
+          for i in {1..10}; do
+            if curl --output /dev/null --silent --head --fail http://localhost:9090/actuator/health; then
+              echo "Backend is up!"; break;
+            else
+              echo "Waiting for backend..."; sleep 5;
+            fi
+          done
         working-directory: backend
         run: ./mvnw -B -q -Dtest=com.example.backend.bdd.CucumberTest test
       - name: Run API tests (REST Assured)
         working-directory: backend
+          CHROME_USER_DATA_DIR: /tmp/chrome-user-data-$GITHUB_RUN_ID
         run: |
           nohup ./mvnw -q spring-boot:run &
           sleep 20
