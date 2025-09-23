@@ -6,7 +6,7 @@ export default function TaskList({ tasks, onComplete, onDelete }) {
 		return <div className="empty">No tasks yet. Add one above.</div>
 	}
 	return (
-		<ul className="task-list">
+		<ul id="task-list" className="task-list">
 			{tasks.map((t) => (
 				<TaskRow key={t.id} task={t} onComplete={onComplete} onDelete={onDelete} />
 			))}

@@ -20,3 +20,4 @@ export default function TaskRow({ task, onComplete, onDelete }) {
 		</li>
 	)
 }
+

@@ -21,3 +21,4 @@ Simple to-do list frontend that works with the provided backend API.
 
 ## Notes
 - The app assumes task shape includes at least `{ id, title, description?, completed }`.
+

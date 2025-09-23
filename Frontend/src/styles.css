@@ -20,3 +20,4 @@ h1 { margin: 0 0 16px; font-size: 24px; }
 .task-row .actions .complete { background: #10b981; color: white; border: none; border-radius: 8px; padding: 8px 10px; cursor: pointer; }
 .task-row .actions .complete[disabled] { background: #a7f3d0; color: #065f46; cursor: default; }
 .task-row .actions .delete { background: #ef4444; color: white; border: none; border-radius: 8px; padding: 8px 10px; cursor: pointer; }
+

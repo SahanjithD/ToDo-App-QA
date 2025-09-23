@@ -1,4 +1,4 @@
-const BASE_URL = 'http://localhost:9090'
+const BASE_URL = 'http://localhost:9090/api'
 
 async function handleResponse(res) {
 	if (!res.ok) {
@@ -14,11 +14,11 @@ export async function fetchTasks() {
 	return handleResponse(res)
 }
 
-export async function createTask({ title, description }) {
+export async function createTask({ title, description, priority = 'MEDIUM' }) {
 	const res = await fetch(`${BASE_URL}/tasks`, {
 		method: 'POST',
 		headers: { 'Content-Type': 'application/json' },
-		body: JSON.stringify({ title, description }),
+		body: JSON.stringify({ title, description, priority }),
 	})
 	return handleResponse(res)
 }
@@ -32,3 +32,4 @@ export async function deleteTask(id) {
 	const res = await fetch(`${BASE_URL}/tasks/${id}`, { method: 'DELETE' })
 	return handleResponse(res)
 }
+
