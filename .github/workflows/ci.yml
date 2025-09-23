@@ -16,6 +16,9 @@ jobs:
           distribution: temurin
           java-version: '21'
           cache: 'maven'
+      - name: Make Maven Wrapper executable
+        run: chmod +x ./mvnw
+        working-directory: backend
       - name: Build and run unit tests
         working-directory: backend
         run: ./mvnw -B -q -DskipITs=true test
