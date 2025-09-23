@@ -1,0 +1,27 @@
+# Global ignores
+*.class
+*.jar
+*.war
+*.ear
+*.log
+.env
+*.swp
+*.swo
+node_modules/
+
+# IDEs
+.idea/
+*.iml
+*.ipr
+*.iws
+
+# VS Code
+.vscode/
+
+# Maven
+/target/
+.mvn/wrapper/maven-wrapper.jar
+
+# OS
+.DS_Store
+Thumbs.db
