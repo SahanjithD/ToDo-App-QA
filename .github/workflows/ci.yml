@@ -48,5 +48,4 @@ jobs:
           sudo apt-get update && sudo apt-get install -y xvfb
           Xvfb :99 &
           export DISPLAY=:99
-          ./mvnw -B -q -Dtest=com.example.backend.ui.SeleniumTests -Dfrontend.url=$frontend_url -Dchrome.user.data.dir=$CHROME_USER_DATA_DIR test 
-          || echo "Skipping if frontend not running"
+          ./mvnw -B -q -Dtest=com.example.backend.ui.SeleniumTests -Dfrontend.url=$frontend_url -Dchrome.user.data.dir=$CHROME_USER_DATA_DIR test || echo "Skipping if frontend not running"
