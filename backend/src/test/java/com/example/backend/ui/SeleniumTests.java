@@ -4,6 +4,7 @@ import io.github.bonigarcia.wdm.WebDriverManager;
 import org.junit.jupiter.api.*;
 import org.openqa.selenium.*;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.support.ui.*;
 
 import java.time.Duration;
@@ -20,7 +21,15 @@ public class SeleniumTests {
 
     @BeforeEach
     void setup() {
-        driver = new ChromeDriver();
+        String userDataDir = System.getProperty("chrome.user.data.dir");
+        if (userDataDir == null || userDataDir.isEmpty()) {
+            userDataDir = System.getenv("CHROME_USER_DATA_DIR");
+        }
+        ChromeOptions options = new ChromeOptions();
+        if (userDataDir != null && !userDataDir.isEmpty()) {
+            options.addArguments("--user-data-dir=" + userDataDir);
+        }
+        driver = new ChromeDriver(options);
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(3));
         wait = new WebDriverWait(driver, Duration.ofSeconds(10));
     }
