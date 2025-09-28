@@ -1,0 +1,108 @@
+{
+	"id": "c32f1c9a-731f-438a-b136-b9463fc950fa",
+	"name": "Tasks",
+	"timestamp": "2025-09-26T14:03:36.946Z",
+	"collection_id": "45207180-eba6f158-a01f-4e34-99b2-ba9d08cf5249",
+	"folder_id": 0,
+	"environment_id": "45207180-2cc1da08-97cc-46c8-83f0-35bc7a7d76bc",
+	"totalPass": 6,
+	"delay": 0,
+	"persist": true,
+	"status": "finished",
+	"startedAt": "2025-09-26T14:03:36.456Z",
+	"totalFail": 0,
+	"results": [
+		{
+			"id": "c08d85db-4e5f-4ef1-b1f9-7cc172df01b1",
+			"name": "http://localhost:9090/api/tasks",
+			"url": "http://localhost:9090/api/tasks",
+			"time": 18,
+			"responseCode": {
+				"code": 201,
+				"name": "Created"
+			},
+			"tests": {
+				"Status is 201": true,
+				"Has id": true,
+				"Title ok": true
+			},
+			"testPassFailCounts": {
+				"Status is 201": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Has id": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Title ok": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				18
+			],
+			"allTests": [
+				{
+					"Status is 201": true,
+					"Has id": true,
+					"Title ok": true
+				}
+			]
+		},
+		{
+			"id": "615342fa-f9fb-46b6-8b12-d161c67b000b",
+			"name": "http://localhost:9090/api/tasks",
+			"url": "http://localhost:9090/api/tasks",
+			"time": 14,
+			"responseCode": {
+				"code": 400,
+				"name": "Bad Request"
+			},
+			"tests": {
+				"Status is 400": true,
+				"Errors array present": true,
+				"Title error present": true
+			},
+			"testPassFailCounts": {
+				"Status is 400": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Errors array present": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Title error present": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				14
+			],
+			"allTests": [
+				{
+					"Status is 400": true,
+					"Errors array present": true,
+					"Title error present": true
+				}
+			]
+		}
+	],
+	"count": 1,
+	"totalTime": 32,
+	"collection": {
+		"requests": [
+			{
+				"id": "c08d85db-4e5f-4ef1-b1f9-7cc172df01b1",
+				"method": "POST"
+			},
+			{
+				"id": "615342fa-f9fb-46b6-8b12-d161c67b000b",
+				"method": "POST"
+			}
+		]
+	}
+}

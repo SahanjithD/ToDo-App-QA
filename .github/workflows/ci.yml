@@ -25,20 +25,20 @@ jobs:
       - name: Run BDD tests
         working-directory: backend
         run: ./mvnw -B -q -Dtest=com.example.backend.bdd.CucumberTest test
-      - name: Run API tests (REST Assured)
+      - name: Start backend for API and UI tests
         working-directory: backend
         run: |
           nohup ./mvnw -q spring-boot:run &
-          sleep 20
-          # Wait for backend to be available
-          for i in {1..10}; do
+          for i in {1..20}; do
             if curl --output /dev/null --silent --head --fail http://localhost:9090/actuator/health; then
               echo "Backend is up!"; break;
             else
               echo "Waiting for backend..."; sleep 5;
             fi
           done
-          ./mvnw -B -q -Dtest=com.example.backend.api.TaskApiTests -Dapi.base=http://localhost:9090 test
+      - name: Run API tests (REST Assured)
+        working-directory: backend
+        run: ./mvnw -B -q -Dtest=com.example.backend.api.TaskApiTests -Dapi.base=http://localhost:9090 test
       - name: Run Selenium UI tests (optional, headless)
         env:
           frontend_url: http://localhost:5173
@@ -49,13 +49,3 @@ jobs:
           Xvfb :99 &
           export DISPLAY=:99
           ./mvnw -B -q -Dtest=com.example.backend.ui.SeleniumTests -Dfrontend.url=$frontend_url -Dchrome.user.data.dir=$CHROME_USER_DATA_DIR test || echo "Skipping if frontend not running"
-          ./mvnw -B -q -Dtest=com.example.backend.api.TaskApiTests -Dapi.base=http://localhost:9090 test
-      - name: Run Selenium UI tests (optional, headless)
-        env:
-          frontend_url: http://localhost:5173
-        working-directory: backend
-        run: |
-          sudo apt-get update && sudo apt-get install -y xvfb
-          Xvfb :99 &
-          export DISPLAY=:99
-          ./mvnw -B -q -Dtest=com.example.backend.ui.SeleniumTests -Dfrontend.url=$frontend_url test || echo "Skipping if frontend not running"
