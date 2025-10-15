@@ -19,6 +19,12 @@ jobs:
       - name: Make Maven Wrapper executable
         run: chmod +x ./mvnw
         working-directory: backend
+      - name: Make validation check script executable
+        run: chmod +x ./scripts/check-validation-messages.sh
+        working-directory: backend
+      - name: Run validation message checks
+        working-directory: backend
+        run: ./scripts/check-validation-messages.sh
       - name: Build and run unit tests
         working-directory: backend
         run: ./mvnw -B -q -DskipITs=true test
