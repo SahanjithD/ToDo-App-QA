@@ -46,7 +46,7 @@ public class TaskApiTests {
         .then()
             .statusCode(400)
             .body("errors.field", hasItem("title"))
-            .body("errors.find { it.field == 'title' }.message", equalTo("Title is required"));
+            .body("errors.find { it.field == 'title' }.message", equalTo("Title cannot be empty"));
     }
 
     @Test
