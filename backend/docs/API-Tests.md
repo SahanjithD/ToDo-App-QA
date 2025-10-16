@@ -1,14 +1,15 @@
-## API Tests with REST Assured: Two Endpoints
+# API Testing Options
 
-### Requirements
-- 2 API test cases: create task (201) and invalid create (400) automated using Postman or REST Assured (Java).
+## Requirements
+- 2 API test cases: create task (201) and invalid create (400) automated using Postman OR REST Assured (Java).
 - Validate response codes, payloads, and error handling in assertions.
-- Export Postman collection/environment JSONs or commit REST Assured test code.
+- Export Postman collection/environment JSONs OR commit REST Assured test code.
 
-We will test two API endpoints with REST Assured:
+You can choose either Option A (REST Assured) OR Option B (Postman). Both approaches test these endpoints:
 1) POST /api/tasks → create task (201)
 2) POST /api/tasks with invalid body → validation error (400)
 
+# Option A: REST Assured (Java Implementation)
 ### Dependencies (Maven)
 
 ```xml
@@ -93,12 +94,9 @@ Optional: set base URL
 mvn -q -Dapi.base=http://localhost:8081 -Dtest=com.example.backend.api.TaskApiTests test
 ```
 
-### Notes
-- Align error response to `{errors:[{field,message}]}`.
+---
 
-
-
-### Postman/Newman Automation
+# Option B: Postman Implementation
 
 1) Environment
 - Create a Postman Environment with:

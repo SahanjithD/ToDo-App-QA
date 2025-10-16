@@ -14,7 +14,7 @@ import jakarta.validation.constraints.Size;
 public class TaskDTO {
     private Long id;
     
-    @NotBlank(message = "Title is required")
+    @NotBlank(message = "Title cannot be empty")
     @Size(max = 100, message = "Title must be less than 100 characters")
     private String title;
     

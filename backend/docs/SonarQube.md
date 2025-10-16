@@ -4,13 +4,13 @@ We will run static analysis with SonarQube and capture code smells, duplicates, 
 
 ### Setup SonarQube Locally (Option A)
 1. Docker: `docker run -d --name sonarqube -p 9000:9000 sonarqube:community`
-2. Open `http://localhost:9000` → Login (admin/admin) and set a new password.
+2. Open `http://localhost:9000` → Login (admin/admin) and set a new password.(TgrB3%Nl0000)
 
 Screenshot prompts:
 - Screenshot 1: SonarQube dashboard home.
 
 ### Configure Project
-1. Create new project `todo-backend` and generate a token.
+1. Create new project `todo-backend` and generate a token. (sqp_d9e6776bbc3849a400a1e8adf3e7f556a48b5cfc)
 2. Add to `pom.xml`:
 ```xml
 <plugin>

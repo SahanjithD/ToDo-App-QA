@@ -50,7 +50,7 @@ public class AddTaskTest {
 
 How to get RED:
 - Ensure `POST /api/tasks` is not fully implemented yet (e.g., return 404/501 or missing validation).
-- Run: `mvn -q -Dtest=AddTaskTest test` → test should fail (status not 201 or body missing fields).
+- Run: `$env:MAVEN_OPTS="-DArguments.useAnsi=true -Djansi.mode=force"; .\mvnw.cmd test "-Dtest=AddTaskTest" "-Dstyle.color=always" "-Djansi.force=true" "-Djansi.passthrough=true" "-Dsurefire.useFile=false"` → test should fail (status not 201 or body missing fields).
 
 Screenshot prompts:
 - Screenshot 1: Test file open in IDE showing test cases.
@@ -140,7 +140,7 @@ public class ValidateUserInputTest {
 
 How to get RED:
 - Comment out or remove validation annotations/handlers so the controller accepts bad input.
-- Run: `mvn -q -Dtest=ValidateUserInputTest test` → expect 200/201 or different shape; assertions fail.
+- Run: `$env:MAVEN_OPTS="-DArguments.useAnsi=true -Djansi.mode=force"; .\mvnw.cmd test "-Dtest=TaskValidationTest" "-Dstyle.color=always" "-Djansi.force=true" "-Djansi.passthrough=true" "-Dsurefire.useFile=false"` → expect 200/201 or different shape; assertions fail.
 
 Screenshot prompts:
 - Screenshot 6: Validation test file.
